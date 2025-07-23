@@ -19,7 +19,7 @@ Este repositorio contiene el material de clases, ejemplos de código y recursos 
 - Código fuente de ejemplos trabajados en clase.
 - Ejercicios y desafíos de programación.
 - Proyectos prácticos para reforzar los conocimientos.
-- Notas, equipos, tps, etcs: []()
+- Notas, equipos, tps, etcs: [Drive](https://docs.google.com/spreadsheets/d/1gTAA5xOFzoi8ELqWy8qz7eVTLyIfUnQX/edit?usp=sharing&ouid=115255916872038044528&rtpof=true&sd=true)
 
 ## 🎵 Mi lista de reproducción
 
