@@ -31,7 +31,7 @@ Este repositorio contiene el material de clases, ejemplos de código y recursos 
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/NicolasPerezUNLaSMN/PROG_II_UADE_JAVA.git
+   git clone https://github.com/NicolasPerezUNLaSMN/PROG_AVANZADA_UADE_C.git
    ```
 2. **Abrir el proyecto .cbp en CodeBlocks::, CLion o IDE similar.**
 3. **Explorar las carpetas y archivos según los temas trabajados en clase.**
