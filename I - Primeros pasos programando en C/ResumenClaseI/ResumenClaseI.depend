@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1753447706 source:c:\users\nico_\desktop\prog_ii_uade\resumenclasei\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
