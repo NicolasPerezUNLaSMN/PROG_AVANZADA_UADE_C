@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1754846380 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\vii - clase introductoria punteros\resumenclasevii\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
