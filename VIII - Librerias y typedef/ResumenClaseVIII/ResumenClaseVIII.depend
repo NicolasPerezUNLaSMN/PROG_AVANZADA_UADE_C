@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1754849410 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\viii - librerias y typedef\resumenclaseviii\mascota.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"mascota.h"
+
+1754849347 c:\users\nperez\desktop\prog_avanzada_uade_c-master\viii - librerias y typedef\resumenclaseviii\mascota.h
+
+1754849347 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\viii - librerias y typedef\resumenclaseviii\main.c
+	<stdio.h>
+	<string.h>
+	"mascota.h"
+	"persona.h"
+
+1754849347 c:\users\nperez\desktop\prog_avanzada_uade_c-master\viii - librerias y typedef\resumenclaseviii\persona.h
+	"mascota.h"
+
+1754849410 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\viii - librerias y typedef\resumenclaseviii\persona.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"persona.h"
+
