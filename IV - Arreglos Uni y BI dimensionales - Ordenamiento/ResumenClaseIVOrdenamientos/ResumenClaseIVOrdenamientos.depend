@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1754839713 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\iv - arreglos uni y bi dimensionales - ordenamiento\resumenclaseivordenamientos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1754839386 source:c:\users\nperez\desktop\prog_avanzada_uade_c-master\iii - arreglos y funciones\resumenclaseiiifunciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
