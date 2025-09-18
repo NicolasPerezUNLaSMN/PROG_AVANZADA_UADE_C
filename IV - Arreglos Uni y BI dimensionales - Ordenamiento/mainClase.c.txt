@@ -1,0 +1,169 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+///Declaraciones
+///Arreglos - int !!!
+void cargarArreglo(int tam, int v[]); //(1,2)
+void mostrarArreglo(int tam, int v[]);
+int generarAleatorios(int max, int min);
+///Buscar el minimo!!!!
+int buscarMinimo(int tam, int v[]);
+///Busqueda lineal !!!!
+int buscar(int tam, int v[], int buscado);
+///Busqueda Binaria!!!! (Ordenado!!!)
+///Ordenamiento!!!!!! --- Burbuja!!!
+void ordenarConBurbuja(int tam, int v[]);
+ 
+///------------------------------------------
+ 
+void cargarMatriz(int tC, int tF, int m[tF][tC]);
+void mostrarMatriz(int tC, int tF, int m[tF][tC]);
+ 
+int buscarMaximoDeMatriz(int tC, int tF, int m[tF][tC]);
+ 
+ 
+int main()  ///Abre el main
+{
+    srand(time(0));
+    printf("------------- Clase 4 ---------------\n");
+    //Arreglos!!!!! ---  Unidimensionales
+    ///Arreglos Bi-dimensiones!!! - Matriz
+ 
+    //int t = generarAleatorios(10,5); //tam del arreglo
+    //int arreglo[t];
+    int filas = generarAleatorios(8,5);
+    int columnas = generarAleatorios(5,3);
+ 
+    int matriz[filas][columnas];  //[f][c]
+ 
+    cargarMatriz(columnas, filas, matriz);
+    mostrarMatriz(columnas, filas, matriz);
+ 
+    //int max = buscarMaximoDeMatriz(columnas, filas, matriz);
+    //printf("\n\n\t----> MAXIMO: %d",max);
+ 
+    //cargarArreglo(t,arreglo);
+    //mostrarArreglo(t,arreglo);
+    /*
+    int min = buscarMinimo(t, arreglo);
+    printf("\nMINIMO: %d",min );
+ 
+    printf("\nEstoy buscando el : 10 -->%d", buscar(t, arreglo, 10));
+    */
+ 
+    //ordenarConBurbuja(t, arreglo);
+    //mostrarArreglo(t,arreglo);
+ 
+    return 0;
+} ///CIerra el main
+ 
+int buscarMinimo(int tam, int v[]){
+    int minimo = v[0];
+    /// 32   2   -123    43
+    for ( int i = 0; i<tam; i++){
+        if( minimo > v[i] ){
+            minimo = v[i];
+        }
+    }
+    return minimo;
+};
+ 
+///Implementación
+void cargarArreglo(int tam, int v[]){
+ 
+    for ( int i = 0 ; i < tam; i++){
+        //Aleatorio de dos cifras
+        v[i] = generarAleatorios(100, 10);
+    }
+}; //(1,2)
+ 
+int generarAleatorios(int max, int min){
+    return (min + rand()%(max+1-min));
+};
+ 
+void mostrarArreglo(int tam, int v[]){
+    printf("\nTAM: %d\n{ ", tam);
+     for ( int i = 0 ; i < tam; i++){
+ 
+        printf(" %d,",  v[i] );
+    }
+    printf("}\n");
+ 
+};
+ 
+ 
+int buscar(int tam, int v[], int buscado){
+    int pos = -1; ///Flag blandera!!! - No lo encontro
+    /// 23   23    1    2
+    for ( int i = 0 ; i<tam; i++){
+        if ( buscado == v[i]){
+            pos = i;
+            i = tam+1; ///Salir cuando lo encuentro por primera vez
+        }
+    }
+    return pos;
+};
+ 
+ 
+void ordenarConBurbuja(int tam, int v[]){
+    ///  23    43   1    5
+    ///  43    23   5    1  x
+    int aux; ///el tipo de dato del aux... es tipo de
+    ///dato del array
+    for ( int i =0; i<tam; i++){
+        for ( int j = 0; j < tam-1; j++ ){
+                ///Permutar!!!!
+                if ( v[j] > v[j+1] ){
+                    aux = v[j];
+                    v[j] = v[j+1];
+                    v[j+1] = aux;
+                }
+        }
+    }
+ 
+};
+ 
+ 
+void cargarMatriz(int tC, int tF, int m[tF][tC]){
+ 
+    for ( int c = 0; c<tC; c++){ //Recorro columnas!!!
+ 
+        for ( int f = 0 ; f<tF; f++){ //Recorro las filas
+ 
+            m[f][c] = generarAleatorios(99, 10);
+        }
+    }
+};
+ 
+void mostrarMatriz(int tC, int tF, int m[tF][tC]){
+ 
+    printf("\n----- MATRIZ -----\n");
+    printf("COL: %d\nFIL: %d\n",tC, tF);
+ 
+    for ( int f = 0 ; f<tF; f++){
+        for ( int c = 0; c<tC; c++){ //Recorro columnas!!!
+                //Recorro las filas
+                printf(" %d ", m[f][c] );
+        }
+        printf("\n");
+    }
+ 
+};
+ 
+ 
+int buscarMaximoDeMatriz(int tC, int tF, int m[tF][tC]){
+ 
+    int maximo = m[0][0];
+ 
+    for ( int c = 0; c< tC; c++){
+        for ( int f = 0 ; f<tF; f++){
+ 
+                if ( maximo < m[f][c]){
+                    maximo = m[f][c];
+                }
+        }
+    }
+ 
+    return maximo;
+};

@@ -1,0 +1,165 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+ 
+///Declarar nuestra primer Struct
+///tatara abuelo de las Clases!!!
+struct Estudiante{
+       int matricula;
+       float promedio;
+       char nombre[25];
+}; ///"Creando un nuevo tipo de dato"
+ 
+struct Materia{
+    int codigo;
+    char nombreMateria[25];
+};
+ 
+///_ funciones y procedimientos con Struct
+void mostrarEstudiante(struct Estudiante e);
+struct Estudiante cargarEstudiantePorTeclado();
+ 
+void mostrarMateria(struct Materia m);
+struct Materia cargarMateriaPorTeclado();
+ 
+///Va a cargar a TODOS LOS ESTUDIANTES
+//                               int t, int               v[]
+void cargarEstudiantesPorTeclado(int t, struct Estudiante v[]);
+void mostrarEstudiantes(int t, struct Estudiante v[]);
+ 
+///Tarea hacer el buscar Estudiante en un array!!!!
+ 
+///Ordenar un Array de Strtuct
+void ordenarEstudiantesPorProm(int t, struct Estudiante v[]);
+void ordenarEstudiantesPorNombre(int t, struct Estudiante v[]);
+ 
+ 
+int main()
+{
+    printf("------ Clase 5 -------\n");
+ 
+    ///Muchos ESTDUANTES--- muchos datos del mismo tipo
+    /// ARREGLO ----> Arreglos de Struct
+    /// ___ ____ ___ ___ ___
+    /// 0    1     2   3  4
+ 
+   ///Declara el arreglos de Struct
+   //int tam = 3;
+   //int vector[tam];
+ 
+   int tam = 3;
+   struct Estudiante estudiantes[tam];
+ 
+   cargarEstudiantesPorTeclado(tam, estudiantes);
+   mostrarEstudiantes(tam, estudiantes);
+ 
+   ordenarEstudiantesPorNombre(tam, estudiantes);
+   mostrarEstudiantes(tam, estudiantes);
+ 
+ 
+   ///ABC -- nucleo del parcial!!!!
+ 
+    return 0;
+} ///Cierra el main
+ 
+ 
+void mostrarEstudiante(struct Estudiante e){
+    printf("\n------ ESTUDIANTE -----\n");
+    printf("\n\t- MATRICULA: %d ", e.matricula);
+    printf("\n\t- PROM: %.2f ", e.promedio);
+    printf("\n\t- NOMBRE: %s ", e.nombre);
+ 
+};
+ 
+ 
+struct Estudiante cargarEstudiantePorTeclado(){
+ 
+    struct Estudiante e;
+ 
+    printf("\nPor favor ingresar la matricula:\n");
+    scanf("%d", &e.matricula);
+ 
+    printf("\nPor favor ingresar la prom:\n");
+    scanf("%f", &e.promedio);
+ 
+    printf("\nPor favor ingresar el nombre:\n");
+    fflush(stdin);
+    //scanf("%s", e.nombre);
+    gets(e.nombre);
+ 
+    return e;
+};
+ 
+ 
+void mostrarMateria(struct Materia m){
+    printf("\n------ MATERIA -----\n");
+    printf("\n\t- CODIGO: %d ",m.codigo);
+    printf("\n\t- NOMBRE: %s ", m.nombreMateria);
+ 
+};
+ 
+ 
+struct Materia cargarMateriaPorTeclado(){
+ 
+    struct Materia m;
+ 
+    printf("\nPor favor ingresar el codigo:\n");
+    scanf("%d", &m.codigo);
+ 
+    printf("\nPor favor ingresar el nombre:\n");
+    fflush(stdin);
+    //scanf("%s", m.nombreMateria);
+    gets(m.nombreMateria);
+ 
+    return m;
+};
+ 
+ 
+void cargarEstudiantesPorTeclado(int t, struct Estudiante v[]){
+    ///V : ___  ___ ____ ____ ____
+    for( int i = 0 ; i<t; i++){
+        //v[i] = ale
+        v[i] = cargarEstudiantePorTeclado();
+    }
+ 
+};
+ 
+ 
+void mostrarEstudiantes(int t, struct Estudiante v[]){
+    for( int i = 0 ; i<t; i++){
+        mostrarEstudiante(v[i]);
+    }
+};
+ 
+ 
+void ordenarEstudiantesPorProm(int t, struct Estudiante v[]){
+        ///Burbujas de Estudiantes!!!
+        struct Estudiante aux; /// !!!!
+        for ( int i = 0 ; i < t; i++){
+            for ( int j = 0; j<t-1; j++){
+                if( v[j].promedio < v[j+1].promedio){ //Permuta!!!
+                    aux = v[j];
+                    v[j] = v[j+1];
+                    v[j+1] = aux;
+                }
+            }
+        }
+ 
+};
+ 
+ 
+void ordenarEstudiantesPorNombre(int t, struct Estudiante v[]){
+        ///Burbujas de Estudiantes!!!
+        struct Estudiante aux; /// !!!!
+        for ( int i = 0 ; i < t; i++){
+            for ( int j = 0; j<t-1; j++){
+                if( strcmp(v[j].nombre , v[j+1].nombre) < 0){
+                    aux = v[j];
+                    v[j] = v[j+1];
+                    v[j+1] = aux;
+                }
+            }
+        }
+ 
+};

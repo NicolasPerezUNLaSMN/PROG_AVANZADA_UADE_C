@@ -1,0 +1,338 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+///Constante para la cantidad de estudiantes!!!
+///Python ---> variable = 3 -- NO tiene :(
+#define TAM 3
+ 
+ 
+///Declarar nuestra primer Struct
+///tatara abuelo de las Clases!!!
+ 
+struct Estudiante{
+ 
+       int matricula;
+ 
+       float promedio;
+ 
+       char nombre[25];
+ 
+       //struct Materia materiaCursada;
+ 
+}; ///"Creando un nuevo tipo de dato"
+struct Materia{
+ 
+    int codigo;
+ 
+    char nombreMateria[25];
+ 
+    ///Nuevo!!!!
+ 
+    struct Estudiante arregloEstudiantes[TAM];
+ 
+    ///Tamaño fijo en 3!!!! -- TAM
+ 
+};
+ 
+///Busqueda de estudiantes!!!!!!
+ 
+int busquedaDeEstudiante(int t, struct Estudiante v[], int buscoMatricula);
+ 
+///_ funciones y procedimientos con Struct
+ 
+void mostrarEstudiante(struct Estudiante e);
+ 
+struct Estudiante cargarEstudiantePorTeclado();
+ 
+void mostrarMateria(struct Materia m);
+ 
+struct Materia cargarMateriaPorTeclado();
+ 
+///Va a cargar a TODOS LOS ESTUDIANTES
+ 
+//                               int t, int               v[]
+ 
+void cargarEstudiantesPorTeclado(int t, struct Estudiante v[]);
+ 
+void mostrarEstudiantes(int t, struct Estudiante v[]);
+ 
+///Tarea hacer el buscar Estudiante en un array!!!!
+ 
+///Ordenar un Array de Strtuct - Burbujeo!!!
+ 
+void ordenarEstudiantesPorProm(int t, struct Estudiante v[]);
+ 
+void ordenarEstudiantesPorNombre(int t, struct Estudiante v[]);
+ 
+ 
+void agregarEstudianteAMateria(struct Estudiante v[], struct Estudiante e);
+ 
+ 
+int main()
+ 
+{
+ 
+    printf("------ Clase 6 -------\n");
+ 
+ 
+   ///Materia ---< (tiene) ---< Estudiantes
+ 
+   ///Estructuras anidadas!!!!
+ 
+   ///Generar los datos de la estructura principal
+ 
+   struct Materia m1 = cargarMateriaPorTeclado();
+ 
+   mostrarMateria(m1);
+ 
+   ///Anotando de 1 en 1....
+ 
+   struct Estudiante e1 = cargarEstudiantePorTeclado();//pepe, 1,11
+    struct Estudiante e2 = cargarEstudiantePorTeclado();
+    //struct Estudiante e3 = cargarEstudiantePorTeclado();
+    //struct Estudiante e4 = cargarEstudiantePorTeclado(); //No hay cupo!!!
+ 
+   //La materia y el estudiante que se quiere anotar
+   agregarEstudianteAMateria(m1.arregloEstudiantes, e1);
+   agregarEstudianteAMateria(m1.arregloEstudiantes, e2);
+   //agregarEstudianteAMateria(m1.arregloEstudiantes, e3);
+   //agregarEstudianteAMateria(m1.arregloEstudiantes, e4);
+ 
+   mostrarMateria(m1);
+ 
+ 
+   ///1- Ordener a los estudiantes!!!
+   ///2- Duplicar la materia
+   ///3- Duplicar los estudiantes!!!
+   ///4- Que la materia tenga 1 Profesor!!!!!!
+   ///5- Que cambien los agregarPorTeclado ---> Parametros
+ 
+ 
+ 
+    return 0;
+ 
+} ///Cierra el main
+ 
+ 
+void mostrarEstudiante(struct Estudiante e){
+ 
+    if(e.matricula != -1){ //Estudiante no vacio
+ 
+        printf("\n------ ESTUDIANTE -----\n");
+ 
+        printf("\n\t\t- MATRICULA: %d ", e.matricula);
+ 
+        printf("\n\t\t- PROM: %.2f ", e.promedio);
+ 
+        printf("\n\t\t- NOMBRE: %s ", e.nombre);
+ 
+    }
+ 
+};
+ 
+ 
+struct Estudiante cargarEstudiantePorTeclado(){
+ 
+    struct Estudiante e;
+ 
+    printf("\nPor favor ingresar la matricula:\n");
+ 
+    scanf("%d", &e.matricula);
+ 
+    printf("\nPor favor ingresar la prom:\n");
+ 
+    scanf("%f", &e.promedio);
+ 
+    printf("\nPor favor ingresar el nombre:\n");
+ 
+    fflush(stdin);
+ 
+    //scanf("%s", e.nombre);
+ 
+    gets(e.nombre);
+ 
+    return e;
+ 
+};
+ 
+ 
+void mostrarMateria(struct Materia m){
+ 
+    printf("\n------ MATERIA -----\n");
+ 
+    printf("\n\t- CODIGO: %d ",m.codigo);
+ 
+    printf("\n\t- NOMBRE: %s ", m.nombreMateria);
+ 
+    ///Mostrar al arreglo de estudiantes!!!!
+ 
+    mostrarEstudiantes(TAM, m.arregloEstudiantes);
+ 
+};
+ 
+ 
+struct Materia cargarMateriaPorTeclado(){
+ 
+    struct Materia m;
+ 
+    printf("\nPor favor ingresar el codigo:\n");
+ 
+    scanf("%d", &m.codigo);
+ 
+    printf("\nPor favor ingresar el nombre:\n");
+ 
+    fflush(stdin);
+ 
+    //scanf("%s", m.nombreMateria);
+ 
+    gets(m.nombreMateria);
+ 
+    ///Trabajar con el arreglo!!!
+ 
+    //For---- piden los datos de los estudiantes!!!
+ 
+    ///Arreglo inicial tiene que estar vacio!!!!
+ 
+    for ( int i = 0 ; i< TAM; i++){
+ 
+        //v[0] -- v[1] --- v[2]
+ 
+        ///Vacio de la matricula --- (-1)
+ 
+        ///promedio ---- (-1)
+ 
+        ///nombre "VACIO"
+ 
+        m.arregloEstudiantes[i].matricula = -1;
+ 
+        m.arregloEstudiantes[i].promedio = -1;
+ 
+        //m.arregloEstudiantes[i].nombre = "VACIO"
+ 
+        ///Funcion para sobreescribir chars!!!!!!!!!!!!!!!!!!
+ 
+        strcpy(m.arregloEstudiantes[i].nombre, "VACIO");
+ 
+    }
+ 
+ 
+    return m;
+ 
+};
+ 
+ 
+void cargarEstudiantesPorTeclado(int t, struct Estudiante v[]){
+ 
+    ///V : ___  ___ ____ ____ ____
+ 
+    for( int i = 0 ; i<t; i++){
+ 
+        //v[i] = ale
+ 
+        v[i] = cargarEstudiantePorTeclado();
+ 
+    }
+ 
+};
+ 
+ 
+void mostrarEstudiantes(int t, struct Estudiante v[]){
+ 
+    for( int i = 0 ; i<t; i++){
+ 
+        mostrarEstudiante(v[i]);
+ 
+    }
+ 
+};
+ 
+ 
+void ordenarEstudiantesPorProm(int t, struct Estudiante v[]){
+ 
+        ///Burbujas de Estudiantes!!!
+ 
+        struct Estudiante aux; /// !!!!
+ 
+        for ( int i = 0 ; i < t; i++){
+ 
+            for ( int j = 0; j<t-1; j++){
+ 
+                if( v[j].promedio < v[j+1].promedio){ //Permuta!!!
+ 
+                    aux = v[j];
+ 
+                    v[j] = v[j+1];
+ 
+                    v[j+1] = aux;
+ 
+                }
+ 
+            }
+ 
+        }
+ 
+};
+ 
+ 
+void ordenarEstudiantesPorNombre(int t, struct Estudiante v[]){
+ 
+        ///Burbujas de Estudiantes!!!
+ 
+        struct Estudiante aux; /// !!!!
+ 
+        for ( int i = 0 ; i < t; i++){
+ 
+            for ( int j = 0; j<t-1; j++){
+ 
+                if( strcmp(v[j].nombre , v[j+1].nombre) < 0){
+ 
+                    aux = v[j];
+ 
+                    v[j] = v[j+1];
+ 
+                    v[j+1] = aux;
+ 
+                }
+ 
+            }
+ 
+        }
+ 
+};
+ 
+ 
+void agregarEstudianteAMateria(struct Estudiante v[], struct Estudiante e){
+ 
+    int posParaGuardarlo = 0;  ///Buscar una posición vacia!!!!
+ 
+    posParaGuardarlo = busquedaDeEstudiante(3,v,-1);
+    //-1 no encontro
+    //una posición vacia...
+    if( posParaGuardarlo != -1){
+        v[posParaGuardarlo] = e;
+    }
+ 
+ 
+};
+ 
+ 
+int busquedaDeEstudiante(int t, struct Estudiante v[], int buscoMatricula){
+ 
+    int pos = -1; //No encontre!!!!
+ 
+    for ( int i = 0; i<t; i++){
+ 
+        if( v[i].matricula == buscoMatricula){
+ 
+            pos = i;
+ 
+            i = 2*t; //Sale del for una vez que encontro!!!
+ 
+        }
+ 
+    }
+ 
+    return pos;
+ 
+};

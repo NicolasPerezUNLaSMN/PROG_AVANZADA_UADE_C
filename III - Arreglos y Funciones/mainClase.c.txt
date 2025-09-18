@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+//Declaración
+int sumarEnteros(int entero1, int entero2);
+//funcion que me retorna un numero del 100 al 1000
+int generarAleatorio(int min, int max);
+int ingresarEnteroPorTeclado();
+int funcionEpica(int n );
+void  mostrarEntero(int n ); ///Procedimiento
+ 
+//Carga la info del arreglo (arreglo[], tamaño)
+void  cargarArreglo(int v[], int tam);
+void  mostrarArreglo(int v[], int tam);
+ 
+int main()
+{
+ 
+    printf("---------------- Clase 3 ---------------- \n");
+    //Plantar la semilla de los numeros aleatorios!!!
+    srand(time(0));
+ 
+    ///Python -- Lista - List()!!! :: (
+    // ARREGLOS!!!!! una variable que guarda MUCHA info
+    //de un mismo tipo
+    int cantidad = 6;
+    int variableArreglo[cantidad];/// _7_ _6__ _B__ __B_ __B_ __B_
+    ///                               0   1    2     3    4   5
+ 
+    ///cargar el arreglo
+    cargarArreglo(variableArreglo, cantidad);
+ 
+    //Muestra la info !!!!
+    mostrarArreglo(variableArreglo, cantidad);
+ 
+ 
+    return 0;;
+}//Cierra el main
+ 
+ 
+//Abajo del main ---
+///IMPLEMENTACIón
+int sumarEnteros(int entero1, int entero2){//Inicia la funcion
+    //entero1 = 3;
+    //entero2 = 2;
+    int resultado = entero1 + entero2;
+ 
+    return resultado;
+ 
+} //Cerrar la función
+ 
+int generarAleatorio(int min, int max){
+ 
+ 
+    int resultado = min + rand()%(max+1-min);
+ 
+    return resultado;
+};
+ 
+int ingresarEnteroPorTeclado(){
+    int n;
+    printf("\nPor favor ingresar un entero: \n");
+    scanf("%d", &n);
+ 
+    return n;
+ 
+};
+ 
+int funcionEpica(int n ){
+    //int n = 11;  Duplicados
+    n = 56;
+ 
+    return n;
+ 
+};
+ 
+ 
+void  mostrarEntero(int n ){
+ 
+    printf("\n\n\tENTERO: %d",  n);
+ 
+ 
+};
+ 
+void  cargarArreglo(int v[], int tam){
+ 
+    //Carga la info
+    for ( int i = 0;  i<tam; i++){
+ 
+            v[i] = generarAleatorio(10,100);
+ 
+    }
+};
+ 
+ 
+void  mostrarArreglo(int v[], int tam){
+    printf("\n------ARREGLO-----\n");
+    for ( int i = 0;  i<tam; i++){
+ 
+            printf("i: %d --> %d\n",i , v[i]);
+ 
+    }
+ 
+};
+ 
