@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1760051414 source:c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\clase9del10del2025\persona.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+
+1760051814 source:c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\clase9del10del2025\main.c
+	<stdio.h>
+	<stdlib.h>
+	"materia.h"
+
+1760053757 c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\clase9del10del2025\persona.h
+
+1760053495 source:c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\clase9del10del2025\materia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"materia.h"
+
+1760053340 c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\clase9del10del2025\materia.h
+	"persona.h"
+

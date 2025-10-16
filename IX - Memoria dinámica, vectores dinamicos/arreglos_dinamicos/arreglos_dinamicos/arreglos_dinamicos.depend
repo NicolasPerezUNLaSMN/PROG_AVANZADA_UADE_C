@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1691964036 source:c:\users\nico_\desktop\arreglos_dinamicos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1760055528 source:c:\users\p665\desktop\prog_avanzada_uade_c-master\i - primeros pasos programando en c\arreglos_dinamicos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
